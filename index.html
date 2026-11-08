@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nadine &amp; Mahmoud</title>
+<meta name="description" content="You are invited to the wedding of Nadine &amp; Mahmoud.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#eeeae2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nadine &amp; Mahmoud">
+<meta property="og:description" content="You are invited to the wedding of Nadine &amp; Mahmoud · Istanbul">
+<meta property="og:url" content="https://mahmoudr343.github.io/nadine-mahmoud-final/">
+<meta property="og:image" content="https://mahmoudr343.github.io/nadine-mahmoud-final/assets/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/cover-door-l.webp" as="image">
+<link rel="preload" href="assets/cover-door-r.webp" as="image">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="is-gate">
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<div class="controls" id="controls" hidden>
+  <button class="ctl" id="langBtn" type="button">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 3.9 5.5 3.9 9s-1.3 6.5-3.9 9c-2.6-2.5-3.9-5.5-3.9-9S9.4 5.5 12 3z"/></svg>
+    <span id="langName">English</span>
+  </button>
+  <button class="ctl ctl--music" id="musicBtn" type="button" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+  </button>
+</div>
+
+<div class="gate" id="gate">
+  <div class="gate__stage">
+    <div class="cover" id="cover" style="aspect-ratio:1075/1223">
+      <div class="door door--l" style="width:50.047%"><img src="assets/cover-door-l.webp" alt=""><div class="doorart" style="width:199.8141%;clip-path:polygon(-4% -4%,50.047% -4%,50.047% 104%,-4% 104%)"><img class="rib" src="assets/cover-band-l.webp" alt="" style="left:-1.023%;top:42.600%;width:51.070%"> <img class="rib" src="assets/cover-tail-l.webp" alt="" style="left:13.767%;top:53.966%;width:33.767%"> <img class="rib" src="assets/cover-loop-l.webp" alt="" style="left:13.860%;top:37.939%;width:36.093%"> <img class="rib" src="assets/cover-knot.webp" alt="" style="left:44.744%;top:44.563%;width:10.326%"></div><span class="door__shade"></span><span class="door__back"></span></div>
+      <div class="door door--r" style="left:50.047%;width:49.953%"><img src="assets/cover-door-r.webp" alt=""><div class="doorart doorart--r" style="width:200.1862%;clip-path:polygon(50.047% -4%,104% -4%,104% 104%,50.047% 104%)"><img class="rib" src="assets/cover-band-r.webp" alt="" style="left:50.047%;top:42.600%;width:50.977%"> <img class="rib" src="assets/cover-tail-r.webp" alt="" style="left:52.465%;top:54.374%;width:31.070%"> <img class="rib" src="assets/cover-loop-r.webp" alt="" style="left:49.953%;top:38.021%;width:34.419%"> <img class="rib" src="assets/cover-knot.webp" alt="" style="left:44.744%;top:44.563%;width:10.326%"></div><span class="door__shade"></span><span class="door__back"></span></div>
+    </div>
+    <div class="choose" id="choose">
+      <button type="button" class="pill" data-choose="en" lang="en">English</button>
+      <button type="button" class="pill pill--ar" data-choose="ar" lang="ar" dir="rtl">العربية</button>
+    </div>
+  </div>
+</div>
+
+<main id="book">
+  <div class="column">
+    <section class="page page--opening" id="pg-opening">
+      <div class="pv" data-l="both" style="aspect-ratio:1024/1536">
+        <img class="bg" src="assets/p-opening.webp" alt="" width="1024" height="1536">
+        <img class="t" src="assets/p-opening-verse.webp" alt="" data-d="0" style="left:23.926%;top:40.560%;width:53.027%">
+        <img class="t" src="assets/p-opening-mono.webp" alt="" data-d="1" style="left:39.551%;top:46.354%;width:21.484%">
+        <img class="t" src="assets/p-opening-names.webp" alt="" data-d="2" style="left:26.855%;top:72.656%;width:46.094%">
+      </div>
+    </section>
+    <section class="page page--families" id="pg-families">
+      <div class="pv" data-l="en" style="aspect-ratio:1025/1534">
+        <img class="bg" src="assets/p-families-en.webp" alt="" width="1025" height="1534" loading="lazy">
+        <img class="t" src="assets/p-families-en-basmala.webp" alt="" data-d="0" style="left:23.902%;top:23.924%;width:53.659%" loading="lazy">
+        <img class="t" src="assets/p-families-en-dua.webp" alt="" data-d="1" style="left:12.976%;top:33.833%;width:76.098%" loading="lazy">
+        <img class="t" src="assets/p-families-en-parL.webp" alt="" data-d="2" style="left:14.634%;top:43.481%;width:35.220%" loading="lazy">
+        <img class="t" src="assets/p-families-en-parR.webp" alt="" data-d="2" style="left:55.024%;top:42.894%;width:33.171%" loading="lazy">
+        <img class="t" src="assets/p-families-en-invite.webp" alt="" data-d="3" style="left:17.561%;top:53.846%;width:65.268%" loading="lazy">
+        <img class="t" src="assets/p-families-en-names.webp" alt="" data-d="4" style="left:12.780%;top:64.602%;width:74.439%" loading="lazy">
+      </div>
+      <div class="pv" data-l="ar" style="aspect-ratio:1025/1534">
+        <img class="bg" src="assets/p-families-ar.webp" alt="" width="1025" height="1534" loading="lazy">
+        <img class="t" src="assets/p-families-ar-basmala.webp" alt="" data-d="0" style="left:26.049%;top:24.837%;width:52.488%" loading="lazy">
+        <img class="t" src="assets/p-families-ar-dua.webp" alt="" data-d="1" style="left:13.171%;top:33.898%;width:75.805%" loading="lazy">
+        <img class="t" src="assets/p-families-ar-parR.webp" alt="" data-d="2" style="left:51.707%;top:43.025%;width:36.293%" loading="lazy">
+        <img class="t" src="assets/p-families-ar-parL.webp" alt="" data-d="2" style="left:13.463%;top:43.351%;width:34.829%" loading="lazy">
+        <img class="t" src="assets/p-families-ar-invite.webp" alt="" data-d="3" style="left:13.171%;top:54.628%;width:75.707%" loading="lazy">
+        <img class="t" src="assets/p-families-ar-names.webp" alt="" data-d="4" style="left:15.317%;top:63.429%;width:69.951%" loading="lazy">
+      </div>
+    </section>
+    <section class="page page--countdown" id="pg-countdown">
+      <div class="pv" data-l="en" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-countdown-en.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-countdown-en-sub.webp" alt="" data-d="0" style="left:30.927%;top:31.526%;width:37.790%" loading="lazy">
+        <img class="t" src="assets/p-countdown-en-title.webp" alt="" data-d="1" style="left:18.182%;top:36.876%;width:64.528%" loading="lazy">
+        <img class="t" src="assets/p-countdown-en-labels.webp" alt="" data-d="3" style="left:16.667%;top:67.760%;width:68.895%" loading="lazy">
+        <p class="dyn date" style="left:50.000%;top:55.492%" data-d="2" data-date></p>
+        <span class="dyn cd" style="left:21.390%;top:66.049%" data-d="3" data-u="0">--</span>
+        <span class="dyn cd" style="left:40.553%;top:66.049%" data-d="3" data-u="1">--</span>
+        <span class="dyn cd" style="left:59.715%;top:66.049%" data-d="3" data-u="2">--</span>
+        <span class="dyn cd" style="left:78.877%;top:66.049%" data-d="3" data-u="3">--</span>
+      </div>
+      <div class="pv" data-l="ar" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-countdown-ar.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-countdown-ar-label0.webp" alt="" data-d="3" style="left:75.134%;top:67.618%;width:7.932%">
+        <img class="t" src="assets/p-countdown-ar-label1.webp" alt="" data-d="3" style="left:53.476%;top:67.903%;width:12.299%">
+        <img class="t" src="assets/p-countdown-ar-label2.webp" alt="" data-d="3" style="left:35.294%;top:67.903%;width:10.963%">
+        <img class="t" src="assets/p-countdown-ar-label3.webp" alt="" data-d="3" style="left:16.667%;top:67.832%;width:8.913%">
+        <img class="t" src="assets/p-countdown-ar-sub.webp" alt="" data-d="0" style="left:35.383%;top:31.526%;width:29.590%" loading="lazy">
+        <img class="t" src="assets/p-countdown-ar-title.webp" alt="" data-d="1" style="left:23.708%;top:38.017%;width:53.119%" loading="lazy">
+        <p class="dyn date" style="left:50.000%;top:55.492%" data-d="2" data-date></p>
+        <span class="dyn cd" style="left:78.877%;top:66.049%" data-d="3" data-u="0">--</span>
+        <span class="dyn cd" style="left:59.715%;top:66.049%" data-d="3" data-u="1">--</span>
+        <span class="dyn cd" style="left:40.553%;top:66.049%" data-d="3" data-u="2">--</span>
+        <span class="dyn cd" style="left:21.390%;top:66.049%" data-d="3" data-u="3">--</span>
+      </div>
+    </section>
+    <section class="page page--venue" id="pg-venue">
+      <div class="pv" data-l="en" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-venue-en.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-venue-en-title.webp" alt="" data-d="0" style="left:25.401%;top:32.097%;width:49.020%" loading="lazy">
+        <p class="dyn venue" style="left:50.000%;top:50.785%" data-d="1" data-venue="name"></p>
+        <p class="dyn city" style="left:50.000%;top:58.631%" data-d="2" data-venue="city"></p>
+        <a class="dyn pin" style="left:49.822%;top:66.476%" data-d="2" data-maps target="_blank" rel="noopener" aria-label="Google Maps"></a>
+        <a class="dyn maps pill" style="left:50.000%;top:74.394%" data-d="3" data-maps target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+      <div class="pv" data-l="ar" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-venue-ar.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-venue-ar-title.webp" alt="" data-d="0" style="left:26.203%;top:32.097%;width:46.881%" loading="lazy">
+        <p class="dyn venue" style="left:50.000%;top:50.785%" data-d="1" data-venue="name"></p>
+        <p class="dyn city" style="left:50.000%;top:58.631%" data-d="2" data-venue="city"></p>
+        <a class="dyn pin" style="left:49.822%;top:66.476%" data-d="2" data-maps target="_blank" rel="noopener" aria-label="خرائط جوجل"></a>
+        <a class="dyn maps pill" style="left:50.000%;top:74.394%" data-d="3" data-maps target="_blank" rel="noopener">افتح الموقع في خرائط جوجل</a>
+      </div>
+    </section>
+    <section class="page page--evening" id="pg-evening">
+      <div class="pv" data-l="en" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-evening-en.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-evening-en-title.webp" alt="" data-d="0" style="left:23.173%;top:9.629%;width:53.743%" loading="lazy">
+        <img class="t" src="assets/p-evening-en-r1.webp" alt="" data-d="1" style="left:39.661%;top:23.823%;width:32.799%" loading="lazy">
+        <img class="t" src="assets/p-evening-en-r2.webp" alt="" data-d="2" style="left:39.661%;top:35.663%;width:46.791%" loading="lazy">
+        <img class="t" src="assets/p-evening-en-r3.webp" alt="" data-d="3" style="left:40.107%;top:47.076%;width:31.194%" loading="lazy">
+        <img class="t" src="assets/p-evening-en-r4.webp" alt="" data-d="4" style="left:40.018%;top:58.559%;width:33.155%" loading="lazy">
+        <img class="t" src="assets/p-evening-en-r5.webp" alt="" data-d="5" style="left:39.750%;top:69.472%;width:43.137%" loading="lazy">
+      </div>
+      <div class="pv" data-l="ar" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-evening-ar.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-evening-ar-title.webp" alt="" data-d="0" style="left:26.738%;top:12.482%;width:47.594%" loading="lazy">
+        <img class="t" src="assets/p-evening-ar-r1.webp" alt="" data-d="1" style="left:41.087%;top:24.180%;width:30.303%" loading="lazy">
+        <img class="t" src="assets/p-evening-ar-r2.webp" alt="" data-d="2" style="left:42.246%;top:35.663%;width:27.807%" loading="lazy">
+        <img class="t" src="assets/p-evening-ar-r3.webp" alt="" data-d="3" style="left:41.979%;top:47.290%;width:27.718%" loading="lazy">
+        <img class="t" src="assets/p-evening-ar-r4.webp" alt="" data-d="4" style="left:42.335%;top:58.631%;width:27.540%" loading="lazy">
+        <img class="t" src="assets/p-evening-ar-r5.webp" alt="" data-d="5" style="left:42.157%;top:69.757%;width:27.540%" loading="lazy">
+      </div>
+    </section>
+    <section class="page page--rsvp" id="pg-rsvp">
+      <div class="pv" data-l="en" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-rsvp-en.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-rsvp-en-title.webp" alt="" data-d="0" style="left:23.084%;top:26.748%;width:50.000%" loading="lazy">
+        <img class="t" src="assets/p-rsvp-en-respond.webp" alt="" data-d="1" style="left:33.512%;top:40.086%;width:32.799%" loading="lazy">
+        <img class="t" src="assets/p-rsvp-en-note.webp" alt="" data-d="2" style="left:15.241%;top:48.288%;width:68.984%" loading="lazy">
+        <img class="t" src="assets/p-rsvp-en-labels.webp" alt="" data-d="3" style="left:31.907%;top:66.619%;width:38.503%" loading="lazy">
+        <button type="button" class="tile" data-v="yes" aria-pressed="false" aria-label="Joyfully accepts" style="left:28.966%;top:59.914%;width:16.488%;height:19.829%"></button>
+        <svg class="tick" data-tick="yes" viewBox="0 0 24 24" style="left:38.146%;top:64.337%" aria-hidden="true"><path d="M4.5 12.8l4.6 4.6L20 6.2"/></svg>
+        <button type="button" class="tile" data-v="no" aria-pressed="false" aria-label="Regretfully declines" style="left:53.030%;top:59.914%;width:16.934%;height:19.829%"></button>
+        <svg class="tick" data-tick="no" viewBox="0 0 24 24" style="left:62.121%;top:64.337%" aria-hidden="true"><path d="M4.5 12.8l4.6 4.6L20 6.2"/></svg>
+      </div>
+      <div class="pv" data-l="ar" style="aspect-ratio:1122/1402">
+        <img class="bg" src="assets/p-rsvp-ar.webp" alt="" width="1122" height="1402" loading="lazy">
+        <img class="t" src="assets/p-rsvp-ar-title.webp" alt="" data-d="0" style="left:23.529%;top:26.748%;width:50.980%" loading="lazy">
+        <img class="t" src="assets/p-rsvp-ar-respond.webp" alt="" data-d="1" style="left:31.016%;top:40.442%;width:38.859%" loading="lazy">
+        <img class="t" src="assets/p-rsvp-ar-note.webp" alt="" data-d="2" style="left:20.321%;top:48.859%;width:59.982%" loading="lazy">
+        <img class="t" src="assets/p-rsvp-ar-labels.webp" alt="" data-d="3" style="left:32.353%;top:66.690%;width:36.185%" loading="lazy">
+        <button type="button" class="tile" data-v="yes" aria-pressed="false" aria-label="يسعدني الحضور" style="left:28.966%;top:59.914%;width:16.488%;height:19.829%"></button>
+        <svg class="tick" data-tick="yes" viewBox="0 0 24 24" style="left:38.146%;top:64.337%" aria-hidden="true"><path d="M4.5 12.8l4.6 4.6L20 6.2"/></svg>
+        <button type="button" class="tile" data-v="no" aria-pressed="false" aria-label="أعتذر عن الحضور" style="left:53.030%;top:59.914%;width:16.934%;height:19.829%"></button>
+        <svg class="tick" data-tick="no" viewBox="0 0 24 24" style="left:62.121%;top:64.337%" aria-hidden="true"><path d="M4.5 12.8l4.6 4.6L20 6.2"/></svg>
+      </div>
+    </section>
+    <section class="page page--closing" id="pg-closing">
+      <div class="pv" data-l="en" style="aspect-ratio:1402/1122">
+        <img class="bg" src="assets/p-closing-en.webp" alt="" width="1402" height="1122" loading="lazy">
+        <img class="t" src="assets/p-closing-en-text.webp" alt="" data-d="0" style="left:12.839%;top:22.103%;width:75.178%" loading="lazy">
+        <img class="t" src="assets/p-closing-en-names.webp" alt="" data-d="1" style="left:13.267%;top:45.900%;width:76.890%" loading="lazy">
+      </div>
+      <div class="pv" data-l="ar" style="aspect-ratio:1402/1122">
+        <img class="bg" src="assets/p-closing-ar.webp" alt="" width="1402" height="1122" loading="lazy">
+        <img class="t" src="assets/p-closing-ar-text.webp" alt="" data-d="0" style="left:22.040%;top:22.103%;width:57.489%" loading="lazy">
+        <img class="t" src="assets/p-closing-ar-names.webp" alt="" data-d="1" style="left:13.909%;top:45.455%;width:72.468%" loading="lazy">
+      </div>
+    </section>
+  </div>
+</main>
+
+<audio id="music" loop preload="none"></audio>
+<script src="config.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>
