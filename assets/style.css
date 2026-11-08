@@ -1,0 +1,113 @@
+/* Nadine & Mahmoud – invitation built on the couple's own page artwork */
+@font-face { font-family: "Cormorant Garamond"; font-weight: 500; src: url(cormorant-garamond-latin-500-normal.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 600; src: url(cormorant-garamond-latin-600-normal.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 500; font-style: italic; src: url(cormorant-garamond-latin-500-italic.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Amiri"; font-weight: 400; src: url(amiri-arabic-400-normal.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Amiri"; font-weight: 700; src: url(amiri-arabic-700-normal.woff2) format("woff2"); font-display: swap; }
+
+:root {
+  --bg: #eeeae2; --bg2: #e6e1d8;
+  --taupe: #5e5046; --taupe-2: #7a6b5f; --champ: #9c8662; --champ-l: #c4b190;
+  --colw: min(100vw, 520px);
+  --cw: min(90vw, calc((100svh - 150px) * 0.879), 500px);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: radial-gradient(120% 80% at 50% 30%, #f4f1eb 0%, var(--bg) 55%, var(--bg2) 100%) fixed; color: var(--taupe);
+  font-family: "Cormorant Garamond", Georgia, serif; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow: hidden; }
+html[lang="ar"] body { font-family: "Amiri", serif; }
+button { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+
+/* ---------- the book: one continuous column, pages blend into each other ---------- */
+#book { position: relative; z-index: 1; height: 100%; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.is-gate #book { overflow: hidden; }
+.column { position: relative; width: var(--colw); margin: 0 auto; background: #efebe3; box-shadow: 0 0 60px rgba(110, 92, 72, .12); }
+.page { position: relative; display: block; }
+.page + .page { margin-top: calc(var(--colw) * -0.04); }
+.page + .page .pv { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 calc(var(--colw) * 0.04)); mask-image: linear-gradient(to bottom, transparent 0, #000 calc(var(--colw) * 0.04)); }
+.pv { position: relative; width: 100%; }
+.bg { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+.t { position: absolute; height: auto; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+html[lang="en"] .pv[data-l="ar"], html[lang="ar"] .pv[data-l="en"] { display: none; }
+
+/* ---------- first-view reveal (once per page) ---------- */
+.t, .dyn { opacity: 0; transform: translate3d(0, calc(var(--colw) * 0.016), 0); filter: blur(3px); will-change: opacity, transform; }
+.seen .t, .seen .dyn { opacity: 1; transform: none; filter: none;
+  transition: opacity 1.25s ease var(--dl, 0s), transform 1.5s cubic-bezier(.2, .7, .2, 1) var(--dl, 0s), filter 1.25s ease var(--dl, 0s); }
+.instant .t, .instant .dyn { transition: none !important; }
+
+/* ---------- live details ---------- */
+.dyn { position: absolute; translate: -50% -50%; margin: 0; white-space: nowrap; text-align: center; line-height: 1.2; }
+.date { font-weight: 600; font-size: calc(var(--colw) * 0.047); letter-spacing: .03em; color: var(--taupe); text-shadow: 0 1px 0 rgba(255, 255, 255, .75); }
+html[lang="ar"] .date { font-family: "Amiri", serif; font-weight: 700; font-size: calc(var(--colw) * 0.046); letter-spacing: 0; line-height: 1.6; }
+.cd { font-weight: 600; font-size: calc(var(--colw) * 0.062); color: var(--taupe); font-variant-numeric: tabular-nums lining-nums; text-shadow: 0 1px 0 rgba(255, 255, 255, .75); line-height: 1; }
+html[lang="ar"] .cd { font-family: "Amiri", serif; font-weight: 700; font-size: calc(var(--colw) * 0.058); line-height: 1.5; }
+.venue { font-weight: 600; font-size: calc(var(--colw) * 0.058); letter-spacing: .02em; color: var(--taupe); text-shadow: 0 1px 0 rgba(255, 255, 255, .75); }
+html[lang="ar"] .venue { font-family: "Amiri", serif; font-weight: 700; font-size: calc(var(--colw) * 0.058); letter-spacing: 0; line-height: 1.6; }
+.city { font-style: italic; font-weight: 500; font-size: calc(var(--colw) * 0.045); color: var(--champ); text-shadow: 0 1px 0 rgba(255, 255, 255, .7); }
+html[lang="ar"] .city { font-family: "Amiri", serif; font-style: normal; font-weight: 400; font-size: calc(var(--colw) * 0.047); line-height: 1.6; }
+.pin { width: calc(var(--colw) * 0.08); height: calc(var(--colw) * 0.08); border-radius: 50%; }
+.pill { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; cursor: pointer; text-decoration: none; color: var(--taupe);
+  border: 1px solid rgba(156, 134, 98, .55); background: linear-gradient(180deg, #fbf9f5 0%, #f1ece4 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), inset 0 -2px 4px rgba(140, 120, 95, .1), 0 3px 10px rgba(100, 84, 66, .14); transition: transform .2s ease; }
+.pill:active { transform: scale(.98); }
+.maps { height: calc(var(--colw) * 0.088); padding: 0 1.4em; font-weight: 600; font-size: calc(var(--colw) * 0.033); letter-spacing: .14em; text-transform: uppercase; }
+html[lang="ar"] .maps { font-family: "Amiri", serif; font-weight: 700; letter-spacing: 0; text-transform: none; font-size: calc(var(--colw) * 0.04); }
+.seen .maps:active { transform: scale(.98); }
+
+/* RSVP tiles (design preview: nothing is sent or saved) */
+.tile { position: absolute; border: 0; padding: 0; background: transparent; cursor: pointer; border-radius: 48% 48% 9% 9% / 32% 32% 6% 6%; transition: background .35s ease, box-shadow .35s ease; }
+.tile[aria-pressed="true"] { background: rgba(255, 253, 249, .18); box-shadow: 0 0 0 2px rgba(196, 177, 144, .55), 0 6px 18px rgba(110, 92, 72, .12); }
+.tick { position: absolute; translate: -50% -50%; width: calc(var(--colw) * 0.05); height: calc(var(--colw) * 0.05); fill: none; stroke: var(--taupe); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; overflow: visible; }
+.tick path { stroke-dasharray: 26; stroke-dashoffset: 26; transition: stroke-dashoffset .5s ease; }
+.tick.on path { stroke-dashoffset: 0; }
+
+/* ---------- the cover: the bow unties, then the card opens like two doors ---------- */
+.gate { position: fixed; inset: 0; z-index: 30; display: flex; align-items: center; justify-content: center; background: radial-gradient(120% 80% at 50% 40%, #f4f1eb 0%, var(--bg) 55%, var(--bg2) 100%); }
+.gate__stage { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 20px 0; }
+.cover { position: relative; width: var(--cw); perspective: calc(var(--cw) * 3.2); filter: drop-shadow(0 calc(var(--cw) * .02) calc(var(--cw) * .045) rgba(100, 82, 62, .2)); }
+.door { position: absolute; top: 0; bottom: 0; left: 0; transform-style: preserve-3d; }
+.door > img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.doorart { position: absolute; top: 0; left: 0; height: 100%; pointer-events: none; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.doorart--r { left: auto; right: 0; }
+.door--l { transform-origin: 0 50%; } .door--r { transform-origin: 100% 50%; }
+.door--l > img { border-radius: 4px 0 0 4px; } .door--r > img { border-radius: 0 4px 4px 0; }
+.door__shade { position: absolute; inset: 0; opacity: 0; pointer-events: none; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.door--l .door__shade { background: linear-gradient(90deg, rgba(80, 66, 50, 0) 30%, rgba(80, 66, 50, .32)); }
+.door--r .door__shade { background: linear-gradient(270deg, rgba(80, 66, 50, 0) 30%, rgba(80, 66, 50, .32)); }
+.door__back { position: absolute; inset: 0; transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; background: linear-gradient(90deg, #efebe3, #e7e2d9); }
+.rib { position: absolute; height: auto; display: block; pointer-events: none; }
+.choose { display: flex; gap: 14px; justify-content: center; transition: opacity .6s ease, transform .6s ease; }
+.choose .pill { min-width: 8.5em; height: 46px; padding: 0 1.4em; font-weight: 600; font-size: 15px; letter-spacing: .12em; }
+.choose .pill--ar { font-family: "Amiri", serif; font-weight: 700; font-size: 18px; letter-spacing: 0; }
+.is-opening .choose { opacity: 0; transform: translateY(6px); pointer-events: none; }
+
+/* the card opens as two doors (the bow stays on, each half travels with its door) – slow pace */
+.is-opening .door--l { animation: doorL 2.6s .5s cubic-bezier(.6, 0, .3, 1) forwards; }
+.is-opening .door--r { animation: doorR 2.6s .5s cubic-bezier(.6, 0, .3, 1) forwards; }
+.is-opening .door__shade { animation: shade 2.6s .5s ease-in forwards; }
+.is-opening .gate { animation: gateOut 2.1s 1.2s ease forwards; }
+@keyframes doorL { to { transform: rotateY(-110deg); } }
+@keyframes doorR { to { transform: rotateY(110deg); } }
+@keyframes shade { 0% { opacity: 0; } 60% { opacity: 1; } 100% { opacity: 1; } }
+@keyframes gateOut { to { opacity: 0; } }
+.is-open .gate { display: none; }
+
+/* ---------- petals, controls ---------- */
+#petals { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; }
+.controls { position: fixed; top: max(10px, env(safe-area-inset-top)); left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 12px; z-index: 20; pointer-events: none; }
+html[dir="rtl"] .controls { flex-direction: row-reverse; }
+.ctl { pointer-events: auto; display: inline-flex; align-items: center; gap: 7px; height: 38px; min-width: 38px; padding: 0 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(156, 134, 98, .45); background: rgba(250, 248, 244, .84); color: var(--taupe); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(100, 84, 66, .12); font-weight: 600; font-size: 14px; letter-spacing: .06em; }
+html[lang="ar"] .ctl { font-family: "Amiri", serif; font-weight: 700; font-size: 15px; letter-spacing: 0; }
+.ctl svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ctl--music { padding: 0; justify-content: center; width: 38px; }
+.ctl--music[aria-pressed="false"] svg { opacity: .45; }
+.ctl--music[aria-pressed="true"] svg { animation: sway 2.4s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .t, .dyn { transform: none; filter: none; }
+    .is-opening .door--l, .is-opening .door--r, .is-opening .door__shade, .is-opening .gate { animation-duration: .01s; animation-delay: 0s; }
+}
