@@ -44,7 +44,9 @@
     var s = Math.max(0, Math.floor((target - Date.now()) / 1000));
     var v = [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60];
     $$('.pv[data-l="' + lang + '"] [data-u]').forEach(function (el) {
-      var i = +el.getAttribute('data-u'), n = v[i]; el.textContent = digits(i === 0 ? n : (n < 10 ? '0' + n : n));
+      var i = +el.getAttribute('data-u'), n = v[i], t = digits(i === 0 ? n : (n < 10 ? '0' + n : n));
+      if (lang === 'ar') t = t.split('').reverse().join('');   // Arabic: each number's digits read right to left (as requested)
+      el.textContent = t;
     });
   }
 
